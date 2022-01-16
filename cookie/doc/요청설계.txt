@@ -1,0 +1,120 @@
+# 메인 페이지
+요청내용	:	/cookie/main.cnu
+파라미터	:	무
+컨트롤러	:	org.cnu.cookie.controller.CnuMain
+뷰		:	/WEB-INF/views/main.jsp
+=============================================================================
+
+# 회원관련 요청
+
+# 로그인 폼보기 요청
+요청내용	:	/cookie/member/login.cnu
+파라미터	:	무
+컨트롤러	:	org.cnu.cookie.controller.member.Login
+뷰		:	/WEB-INF/views/member/login.jsp
+-----------------------------------------------------------------------------
+
+# 로그인 처리 요청
+요청내용	:	/cookie/member/loginProc.cnu
+파라미터	:	id, pw
+컨트롤러	:	org.cnu.cookie.controller.member.LoginProc
+뷰		:	redirect ]
+					성공 ]	/cookie/main.cnu
+					실패	]	/cookie/member/login.cnu
+-----------------------------------------------------------------------------
+
+# 로그아웃 처리 요청
+요청내용	:	/cookie/member/logout.cnu
+파라미터	:	무
+컨트롤러	:	org.cnu.cookie.controller.member.Logout
+뷰		:	redirect ] /cookie/main.cnu
+-----------------------------------------------------------------------------
+
+# 회원정보보기 폼보기 요청
+요청내용	:	/cookie/member/info.cnu
+파라미터	:	무
+컨트롤러	:	org.cnu.cookie.controller.member.MemberInfo
+뷰		:	/WEB-INF/views/member/memberInfo.jsp
+-----------------------------------------------------------------------------
+
+# 회원정보수정 폼보기 요청
+요청내용	:	/cookie/member/edit.cnu
+파라미터	:	무
+컨트롤러	:	org.cnu.cookie.controller.member.MemberEdit
+뷰		:	/WEB-INF/views/member/edit.jsp
+-----------------------------------------------------------------------------
+
+# 회원정보수정 처리 요청
+요청내용	:	/cookie/member/editProc.cnu
+파라미터	:	pw, mail, tel, ano
+컨트롤러	:	org.cnu.cookie.controller.member.EditProc
+뷰		:	redirect ]
+					성공 ]	/cookie/member/info.cnu
+					실패	]	/cookie/member/edit.cnu
+-----------------------------------------------------------------------------
+
+# 회원가입 폼보기 요청
+요청내용	:	/cookie/member/join.cnu
+파라미터	:	무
+컨트롤러	:	org.cnu.cookie.controller.member.Join
+뷰		:	/WEB-INF/views/member/join.jsp
+-----------------------------------------------------------------------------
+
+# 아이디 체크 요청
+요청내용	:	/cookie/member/idCheck.cnu
+파라미터	:	id
+컨트롤러	:	org.cnu.cookie.controller.member.IdCheck
+뷰		:	
+-----------------------------------------------------------------------------
+
+# 회원가입 처리 요청
+요청내용	:	/cookie/member/joinProc.cnu
+파라미터	:	name, id, pw, mail, tel, gen, ano
+컨트롤러	:	org.cnu.cookie.controller.member.JoinProc
+뷰		:	redirect ]
+					성공 ]	/cookie/main.cnu
+					실패	]	/cookie/member/join.cnu
+-----------------------------------------------------------------------------
+
+########################## 게시판 관련 요청설계 ########################
+
+# 게시판 리스트 폼보기 요청
+요청내용	:	/cookie/board/board.cnu
+파라미터	:	[ nowPage ]
+컨트롤러	:	org.cnu.cookie.controller.board.Board
+뷰		:	/WEB-INF/views/board/boardList.jsp
+-----------------------------------------------------------------------------
+# 게시판 글쓰기 폼보기 요청
+요청내용	:	/cookie/board/boardWrite.cnu
+파라미터	:	무
+컨트롤러	:	org.cnu.cookie.controller.board.BoardWrite
+뷰		:	/WEB-INF/views/board/boardWrite.jsp
+-----------------------------------------------------------------------------
+# 게시판 글등록 처리 요청
+요청내용	:	/cookie/board/boardWriteProc.cnu
+파라미터	:	title, body, [ file ]
+컨트롤러	:	org.cnu.cookie.controller.board.BoardWriteProc
+뷰		:	redirect ]
+					성공 ]	/cookie/board/board.cnu
+					실패	]	/cookie/board/errorMsg.cnu
+-----------------------------------------------------------------------------
+# 파일업로드에러 폼보기요청
+요청내용	:	/cookie/board/errorMsg.cnu
+파라미터	:	무
+컨트롤러	:	org.cnu.cookie.controller.board.ErrorMsg
+뷰		:	/WEB-INF/views/board/errorMsg.jsp
+-----------------------------------------------------------------------------
+# 게시글 상세보기 요청
+요청내용	:	/cookie/board/boardDetail.cnu
+파라미터	:	nowPage, bno
+컨트롤러	:	org.cnu.cookie.controller.board.BoardDetail
+뷰		:	/WEB-INF/views/board/boardDetail.jsp
+-----------------------------------------------------------------------------
+# 게시글 삭제 요청
+요청내용	:	/cookie/board/delete.cnu
+파라미터	:	bno, nowPage
+컨트롤러	:	org.cnu.cookie.controller.board.Delete
+뷰		:	redirect ]
+					성공 ]	/cookie/board/board.cnu
+					실패	]	/cookie/board/boardDetail.cnu
+-----------------------------------------------------------------------------

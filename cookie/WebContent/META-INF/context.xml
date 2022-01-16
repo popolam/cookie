@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- xml 문서는 문서의 
+맨 첫라인에 반드시 이 문서가 xml 문서라는 것과 인코딩, 버젼을 기술해야 한다. 
+
+xml 문서는 내부에 반드시 로트 태그가 하나가 존재해야 한다.
+두개이상이 되어도 안되고
+없어도 안된다.
+-->
+
+<Context>
+	<Resource
+		name="jdbc/TestDB"
+		auth="Container"
+		type="javax.sql.DataSource"
+		maxTotal="8"
+		maxIdle="2"
+		maxWaitMillis="10000"
+		username="cnu"
+		password="12345" 
+		url="jdbc:oracle:thin:@localhost:1521:xe"
+		driverClassName="oracle.jdbc.driver.OracleDriver"
+	/>
+	<!-- 
+		이 설정은 이 프로젝트에서 사용할 데이터베이스의 커넥션을 여러개 확보해놓고
+		데이터베이스 작업이 필요하면 그때 하나씩 꺼내서 사용할 목적으로 만들어진
+		커넥션 풀에 대한 설정이다.
+		최대 8개의 커넥션을 서버가 기동되는 순간 확보를 할 것이고
+		데이터베이스 작업이 필요하면 그때마다 8개중 하나씩 꺼내서 작업하면 된다.
+	 -->
+</Context>
